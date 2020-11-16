@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {Fragment, useRef} from 'react';
+
+import DownloadButton from './DownloadUsersList';
+
 
 const UserTable = (props) => {
+    const currentRef = useRef(null);
     console.log(props.users)
     return (
-        <table>
+       
+        <table ref={currentRef}>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -38,7 +43,10 @@ const UserTable = (props) => {
                 }
 
             </tbody>
+            <div><DownloadButton usedRef={currentRef} /></div>
         </table>
+        
+      
     )
 }
 
